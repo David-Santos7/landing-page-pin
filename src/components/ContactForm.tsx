@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Send, MapPin } from "lucide-react"; // Removi Phone e Mail pois não estão sendo usados no visual
+import { Send, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
@@ -61,61 +61,65 @@ const ContactForm = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="text-accent font-medium tracking-wider text-sm uppercase">
-              Contato
-            </span>
+            {/* CARD COM BACKGROUND DE DESTAQUE */}
+            <div className="bg-[#cfeac3] rounded-2xl p-8 shadow-soft">
 
-            <h2 className="font-display text-3xl md:text-4xl font-bold mt-3 mb-4">
-              Agende Sua Visita
-            </h2>
+              <span className="text-accent font-medium tracking-wider text-sm uppercase">
+                Contato
+              </span>
 
-            <p className="text-muted-foreground mb-8">
-              Preencha o formulário e nossa equipe entrará em contato.
-            </p>
+              <h2 className="font-display text-3xl md:text-4xl font-bold mt-3 mb-4">
+                Agende Sua Visita
+              </h2>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <Input
-                name="name"
-                placeholder="Seu nome completo"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                className="h-14"
-              />
+              <p className="text-muted-foreground mb-8">
+                Preencha o formulário e nossa equipe entrará em contato.
+              </p>
 
-              <Input
-                type="email"
-                name="email"
-                placeholder="Seu e-mail"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                className="h-14"
-              />
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <Input
+                  name="name"
+                  placeholder="Seu nome completo"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="h-14"
+                />
 
-              <Input
-                name="phone"
-                placeholder="Seu telefone"
-                value={formData.phone}
-                onChange={handleChange}
-                required
-                className="h-14"
-              />
+                <Input
+                  type="email"
+                  name="email"
+                  placeholder="Seu e-mail"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="h-14"
+                />
 
-              <Button
-                type="submit"
-                size="lg"
-                disabled={isSubmitting}
-                className="w-full h-14 text-base bg-accent text-accent-foreground hover:bg-gold-dark shadow-gold"
-              >
-                {isSubmitting ? "Enviando..." : (
-                  <>
-                    Quero Ser Contactado
-                    <Send className="w-4 h-4 ml-2" />
-                  </>
-                )}
-              </Button>
-            </form>
+                <Input
+                  name="phone"
+                  placeholder="Seu telefone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  required
+                  className="h-14"
+                />
+
+                <Button
+                  type="submit"
+                  size="lg"
+                  disabled={isSubmitting}
+                  className="w-full h-14 text-base bg-accent text-accent-foreground hover:bg-gold-dark shadow-gold"
+                >
+                  {isSubmitting ? "Enviando..." : (
+                    <>
+                      Quero Ser Contactado
+                      <Send className="w-4 h-4 ml-2" />
+                    </>
+                  )}
+                </Button>
+              </form>
+            </div>
           </motion.div>
 
           {/* INFO + MAPA */}
@@ -126,7 +130,6 @@ const ContactForm = () => {
             transition={{ duration: 0.6 }}
             className="space-y-8"
           >
-            {/* CARD CONTATO */}
             <div className="bg-card rounded-2xl p-8 shadow-soft border border-border">
               <h3 className="font-display text-xl font-semibold mb-6">
                 Informações de Contato
@@ -135,20 +138,17 @@ const ContactForm = () => {
                 <MapPin className="text-accent" />
                 <span>
                   Rua Grauçá, 200 – Vila Sônia - São Paulo.
-                  <p> - A apenas 500m do metrô Vila Sônia</p>
+                  <p>- A apenas 500m do metrô Vila Sônia</p>
                   <p>- 10 min do Shopping Butantã</p>
                   <p>- 20 min do Estádio MorumBIS</p>
                 </span>
               </div>
             </div>
 
-            {/* MAPA MODERNO */}
             <a
-              
               rel="noopener noreferrer"
               className="group relative block rounded-2xl overflow-hidden border border-border bg-card shadow-soft"
             >
-              {/* MAPA */}
               <div className="relative aspect-video">
                 <iframe
                   src="https://www.google.com/maps?q=Rua+Grauçá,+200+-+Vila+Sônia,+São+Paulo+-+SP&output=embed"
@@ -159,10 +159,8 @@ const ContactForm = () => {
                 />
               </div>
 
-              {/* OVERLAY */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-90" />
 
-              {/* CTA */}
               <div className="absolute bottom-0 left-0 right-0 p-5 flex items-center justify-between">
                 <div className="text-white">
                   <p className="text-sm opacity-80">Endereço</p>
@@ -173,7 +171,6 @@ const ContactForm = () => {
                     São Paulo – SP • 05626-020
                   </p>
                 </div>
-
               </div>
             </a>
 
