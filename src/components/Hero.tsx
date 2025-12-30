@@ -64,9 +64,14 @@ const Hero = () => {
             <Button
               size="lg"
               onClick={scrollToContact}
-              className="bg-accent text-accent-foreground
-                         hover:bg-gold-dark shadow-gold
-                         px-8 py-6 text-base"
+              className="
+                          bg-accent text-accent-foreground
+                          hover:bg-[#2f6f2f]
+                          shadow-md
+                          px-8 py-6 text-base
+                          transition-colors
+                        "
+
             >
               Quero receber informações
             </Button>

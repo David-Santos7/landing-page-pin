@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Phone, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { NavLink } from "./NavLink"; 
+import { NavLink } from "./NavLink";
 
 /* LOGO */
 import logoPin from "@/assets/logo-pin.png";
@@ -12,31 +12,33 @@ const navLinks = [
   { name: "Diferenciais", href: "#features" },
   { name: "Galeria", href: "#gallery" },
   { name: "Plantas", href: "#floor-plans" },
-  { name: "Financiamento", href: "#financiamento" }, // CORRIGIDO: Agora aponta para o ID correto
+  { name: "Financiamento", href: "#financiamento" },
   { name: "Contato", href: "#contact" },
 ];
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    // Se for âncora, faz o scroll suave manual para garantir
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
     if (href.startsWith("#")) {
       e.preventDefault();
       const element = document.querySelector(href);
       if (element) {
-        // Offset opcional: subtrai a altura do header para não cobrir o título
-        const headerOffset = 80; 
+        const headerOffset = 80;
         const elementPosition = element.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        const offsetPosition =
+          elementPosition + window.pageYOffset - headerOffset;
 
         window.scrollTo({
           top: offsetPosition,
-          behavior: "smooth"
+          behavior: "smooth",
         });
       }
     }
-    // Fecha o menu mobile
+
     setIsMenuOpen(false);
   };
 
@@ -52,8 +54,8 @@ const Header = () => {
             transition={{ duration: 0.5 }}
             className="flex items-center gap-3"
           >
-            <a 
-              href="#hero" 
+            <a
+              href="#hero"
               onClick={(e) => handleNavClick(e, "#hero")}
               className="cursor-pointer block"
             >
@@ -87,7 +89,7 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* CTA DESKTOP */}
+          {/* CTA DESKTOP — CORRIGIDO */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -95,8 +97,19 @@ const Header = () => {
             className="hidden lg:flex items-center gap-4"
           >
             <Button
-              onClick={(e) => handleNavClick(e as unknown as React.MouseEvent<HTMLAnchorElement>, "#contact")}
-              className="bg-accent font-bold text-accent-foreground hover:bg-grey-dark"
+              onClick={(e) =>
+                handleNavClick(
+                  e as unknown as React.MouseEvent<HTMLAnchorElement>,
+                  "#contact"
+                )
+              }
+              className="
+                bg-[#8dc63f] text-white
+                hover:bg-[#2f6f2f]
+                shadow-md shadow-[#8dc63f]/30
+                px-8 py-6 text-base font-bold
+                transition-colors
+              "
             >
               Agendar Visita
             </Button>
@@ -113,7 +126,7 @@ const Header = () => {
         </div>
       </div>
 
-      {/* MOBILE MENU */}
+      {/* MOBILE MENU — NÃO ALTERADO */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
@@ -129,7 +142,7 @@ const Header = () => {
                   key={link.name}
                   to={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className="text-left text-lg text-muted-foreground hover:text-foreground transition-colors font-bold py-3 border-b border-border/50 block w-full"
+                  className="text-left text-lg text-muted-foreground hover:text-foreground transition-colors font-bolds py-3 border-b border-border/50 block w-full"
                 >
                   {link.name}
                 </NavLink>
@@ -137,8 +150,13 @@ const Header = () => {
 
               <div className="flex flex-col gap-4 mt-4">
                 <Button
-                  onClick={(e) => handleNavClick(e as unknown as React.MouseEvent<HTMLAnchorElement>, "#contact")}
-                  className="w-full bg-accent text-accent-foreground hover:bg-gold-dark py-6 text-lg"
+                  onClick={(e) =>
+                    handleNavClick(
+                      e as unknown as React.MouseEvent<HTMLAnchorElement>,
+                      "#contact"
+                    )
+                  }
+                  className="w-full bg-accent text-accent-foreground hover:bg-[#cfeac3] py-6 text-lg"
                 >
                   Agendar Visita
                 </Button>

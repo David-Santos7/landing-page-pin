@@ -109,11 +109,15 @@ const ContactForm = () => {
                   type="submit"
                   size="lg"
                   disabled={isSubmitting}
-                  className="w-full h-14 text-base bg-accent text-accent-foreground hover:bg-gold-dark shadow-gold"
+                  className="w-full h-14 bg-[#8dc63f] text-white
+                hover:bg-[#2f6f2f]
+                shadow-md shadow-[#8dc63f]/30
+                px-8 py-6 text-base font-bold
+                transition-colors"
                 >
                   {isSubmitting ? "Enviando..." : (
                     <>
-                      Quero Ser Contactado
+                      Quero ser contactado
                       <Send className="w-4 h-4 ml-2" />
                     </>
                   )}

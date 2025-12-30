@@ -31,7 +31,7 @@ const Footer = () => {
               />
 
               <h4 className="font-display font-semibold text-lg">
-                         Veja as informações
+                         Informações
               </h4>
             </div>
 
@@ -66,7 +66,7 @@ const Footer = () => {
         {/* BOTTOM BAR — CENTRALIZADA */}
         <div className="border-t border-primary-foreground/10 mt-12 pt-8 flex justify-center text-center">
           <p className="text-primary-foreground/50 text-sm">
-            © {currentYear} Vila Sônia Residence. Todos os direitos reservados.
+            © {currentYear}  © 2025 Todos os direitos reservados.
           </p>
         </div>
 
