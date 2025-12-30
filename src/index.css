@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ================================
+   Google Fonts
+================================ */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap");
+
+/* ================================
+   Design Tokens (Brand PIN)
+================================ */
+@layer base {
+  :root {
+    /* Base */
+    --background: 90 35% 97%;
+    --foreground: 155 25% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 155 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 155 25% 15%;
+
+    /* Primary — Verde Escuro (fundo principal) */
+    --primary: 155 45% 20%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary — Verde Claro */
+    --secondary: 95 45% 75%;
+    --secondary-foreground: 155 35% 20%;
+
+    /* Muted */
+    --muted: 95 30% 90%;
+    --muted-foreground: 155 15% 40%;
+
+    /* Accent — Verde PIN */
+    --accent: 95 55% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Status */
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* UI */
+    --border: 95 25% 85%;
+    --input: 95 25% 85%;
+    --ring: 95 55% 45%;
+
+    /* Radius */
+    --radius: 0.75rem;
+
+    /* Extended Palette */
+    --green-brand: 95 55% 45%;
+    --green-light: 95 45% 75%;
+    --green-dark: 155 45% 20%;
+
+    --white-soft: 90 35% 97%;
+
+    /* Gradients */
+    --gradient-brand: linear-gradient(
+      135deg,
+      hsl(95 55% 45%) 0%,
+      hsl(95 45% 55%) 100%
+    );
+
+    --gradient-hero-overlay: linear-gradient(
+      180deg,
+      hsla(155, 45%, 20%, 0.733) 0%,
+      hsla(155, 45%, 20%, 0.466) 100%
+    );
+
+    /* Shadows */
+    --shadow-soft: 0 6px 24px -6px hsla(155, 25%, 15%, 0.08);
+    --shadow-medium: 0 10px 40px -10px hsla(155, 25%, 15%, 0.15);
+    --shadow-brand: 0 10px 40px -10px hsla(95, 55%, 45%, 0.35);
+  }
+
+  /* Dark Mode (opcional, já preparado) */
+  .dark {
+    --background: 155 45% 12%;
+    --foreground: 90 35% 95%;
+
+    --card: 155 40% 15%;
+    --card-foreground: 90 35% 95%;
+
+    --popover: 155 40% 15%;
+    --popover-foreground: 90 35% 95%;
+
+    --primary: 95 55% 45%;
+    --primary-foreground: 155 45% 15%;
+
+    --secondary: 155 30% 25%;
+    --secondary-foreground: 90 35% 95%;
+
+    --muted: 155 25% 22%;
+    --muted-foreground: 90 20% 70%;
+
+    --accent: 95 55% 45%;
+    --accent-foreground: 155 45% 15%;
+
+    --border: 155 25% 25%;
+    --input: 155 25% 25%;
+    --ring: 95 55% 45%;
+  }
+}
+
+/* ================================
+   Base Styles
+================================ */
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display;
+  }
+}
+
+/* ================================
+   Utilities
+================================ */
+@layer utilities {
+  .text-gradient-brand {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-brand);
+  }
+
+  .bg-gradient-hero {
+    background-image: var(--gradient-hero-overlay);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-medium {
+    box-shadow: var(--shadow-medium);
+  }
+
+  .shadow-brand {
+    box-shadow: var(--shadow-brand);
+  }
+}
